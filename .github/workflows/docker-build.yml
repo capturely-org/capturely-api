@@ -25,10 +25,10 @@ jobs:
 
       - name: Tag image
         run: |
-          docker tag myapp:latest ghcr.io/{{ secrets.DOCKER_USERNAME }}/capturely-api:latest
-          docker tag myapp:latest ghcr.io/${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }}
+          docker tag capturely-api:latest ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
+          docker tag capturely-api:latest ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }}
 
       - name: Push image
         run: |
-          docker push ghcr.io/${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
-          docker push ghcr.io/${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }}
