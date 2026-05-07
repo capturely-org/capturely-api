@@ -35,8 +35,8 @@ jobs:
 
       - name: Cleanup local Docker images
         run: |
-          docker rmi capturely-api:latest || true
-          docker rmi ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest || true
-          docker rmi ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }} || true
+          docker rmi -f capturely-api:latest || true
+          docker rmi -f ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest || true
+          docker rmi -f ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }} || true
 
           docker image prune -f
