@@ -32,3 +32,11 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }}
+
+      - name: Cleanup local Docker images
+        run: |
+          docker rmi capturely-api:latest || true
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest || true
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }} || true
+
+          docker image prune -f
