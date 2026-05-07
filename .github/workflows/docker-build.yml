@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  docker-api-build:
+  docker-api-build-and-push:
     permissions:
       contents: read
       packages: write
