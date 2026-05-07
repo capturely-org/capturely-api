@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
   res.status(200).json({
     "ok": true,
     "message": "Welcome to capturely API",
-    "creator": "Emile Sherrott"
+    "creator": "Emile SE Sherrott"
   })
 })
 
