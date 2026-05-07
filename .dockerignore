@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Git
+.git
+.gitignore
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Build output
+dist/
+build/
+coverage/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary/cache files
+tmp/
+temp/
+.cache/
+
+# Docker-related files
+docker-compose*.yml
+
+# Documentation/tests (optional)
+README.md
+__tests__/
