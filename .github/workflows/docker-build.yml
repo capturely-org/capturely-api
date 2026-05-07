@@ -25,18 +25,18 @@ jobs:
 
       - name: Tag image
         run: |
-          docker tag capturely-api:latest ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
           docker tag capturely-api:latest ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }}
+          docker tag capturely-api:latest ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
 
       - name: Push image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest
 
       - name: Cleanup local Docker images
         run: |
           docker rmi -f capturely-api:latest || true
-          docker rmi -f ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest || true
           docker rmi -f ${{ secrets.DOCKER_USERNAME }}/capturely-api:${{ github.sha }} || true
+          docker rmi -f ${{ secrets.DOCKER_USERNAME }}/capturely-api:latest || true
 
           docker image prune -f
